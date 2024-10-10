@@ -2,6 +2,7 @@ package com.automation.test;
 
 import com.automation.pages.HomePage;
 import com.automation.utils.ExcelUtils;
+import io.qameta.allure.Allure;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -13,6 +14,7 @@ public class verifyUserStateSaved extends BaseTest {
     public void verifyUserCanLoginWithValidCred(String username, String password) {
         loginPage.openWebsite();
         loginPage.doLogin(username, password);
+        Allure.addAttachment("screenshot",takeSs());
         Assert.assertTrue(homePage.isHomePageDisplayed());
     }
 
