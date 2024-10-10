@@ -8,8 +8,15 @@ public class OrderConfirmationPage extends BasePage{
     @FindBy(css = ".complete-header")
     WebElement orderConfirmationMsg;
 
+    @FindBy(id="back-to-products")
+    WebElement backHome;
+
     public boolean isOrderConfirmationMsgDisplayed() {
         System.out.println(orderConfirmationMsg.getText());
         return orderConfirmationMsg.isDisplayed();
+    }
+
+    public void backHome(){
+        backHome.click();
     }
 }

@@ -34,6 +34,9 @@ public class HomePage extends BasePage{
     @FindBy(className = "inventory_item_price")
     List<WebElement> itemPrice;
 
+    @FindBy(xpath = "//button[contains(@id,'remove')]")
+    List<WebElement> removeFromCartBtnList;
+
     public boolean isHomePageDisplayed() {
         return shoppingCartLink.isDisplayed();
     }
@@ -98,5 +101,10 @@ public class HomePage extends BasePage{
             prodPrice.add(Double.parseDouble(priceText));
         }
         return prodPrice;
+    }
+
+    public int removeCount(){
+        System.out.println(removeFromCartBtnList.size());
+        return removeFromCartBtnList.size();
     }
 }
